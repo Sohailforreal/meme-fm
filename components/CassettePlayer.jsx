@@ -477,7 +477,7 @@ scene.add(backdrop);
     const sideMat = new THREE.MeshStandardMaterial({ color: new THREE.Color(SHELL), roughness: 0.65, metalness: 0.12 });
     const bodyGeo = createRoundedBoxGeometry(3.6, 2.2, 0.3, 0.15);
     const body = new THREE.Mesh(bodyGeo, [sideMat, frontMat]);
-    
+    group.add(body);
     const labelGeo = new THREE.PlaneGeometry(3.2, 1.7);
     const labelMat = new THREE.MeshBasicMaterial({ map: makeLabelTexture(song), transparent: true });
     const label = new THREE.Mesh(labelGeo, labelMat);
