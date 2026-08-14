@@ -734,7 +734,7 @@ scene.add(backdrop);
       />
 
       <div style={{ textAlign: "center", marginTop: 20, maxWidth: 420 }}>
-        <div style={{ fontSize: 22, fontWeight: 600 }}>{song.title}</div>
+        <div style={{ fontSize: 22, fontWeight: 600, fontFamily: "'Instrument Serif', serif" }}>{song.title}</div>
         <div style={{ fontSize: 12, opacity: 0.6, marginTop: 4, textTransform: "uppercase", letterSpacing: 1, fontFamily: "'Montserrat', sans-serif" }}>
           {song.vibeTag}
         </div>
