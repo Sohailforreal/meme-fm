@@ -329,7 +329,17 @@ export default function CassettePlayer({ songs }) {
 
   useEffect(() => { indexRef.current = index; }, [index]);
   useEffect(() => { songsRef.current = songs; }, [songs]);
+  useEffect(() => {
+  const ua = navigator.userAgent;
+  const isInstagramBrowser = ua.includes("Instagram");
+  const isAndroid = /Android/i.test(ua);
 
+  if (isInstagramBrowser && isAndroid) {
+    window.location.href =
+      "intent://" + window.location.host + window.location.pathname +
+      "#Intent;scheme=https;package=com.android.chrome;end";
+  }
+}, []);
   const getActivePlayer = () =>
     activeKeyRef.current === "A" ? playerARef.current : playerBRef.current;
   const getStandbyPlayer = () =>
