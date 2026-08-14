@@ -34,7 +34,7 @@ function makeLabelTexture(song) {
 
   ctx.fillStyle = INK;
   let title = song.title;
-  ctx.font = "600 44px Georgia, serif";
+  ctx.font = "600 44px 'DM Sans', sans-serif";
   while (ctx.measureText(title).width > 760 && title.length > 4) {
     title = title.slice(0, -1);
   }
@@ -735,7 +735,7 @@ scene.add(backdrop);
 
       <div style={{ textAlign: "center", marginTop: 20, maxWidth: 420 }}>
         <div style={{ fontSize: 22, fontWeight: 600, fontFamily: "'Instrument Serif', serif" }}>{song.title}</div>
-        <div style={{ fontSize: 12, opacity: 0.6, marginTop: 4, textTransform: "uppercase", letterSpacing: 1, fontFamily: "'Montserrat', sans-serif" }}>
+        <div style={{ fontSize: 12, opacity: 0.6, marginTop: 4, textTransform: "uppercase", letterSpacing: 1, fontFamily: "'DM Sans', sans-serif" }}>
           {song.vibeTag}
         </div>
       </div>
