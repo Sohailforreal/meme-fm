@@ -31,6 +31,7 @@ export default function Home() {
             opacity: 0.6,
             marginBottom: 8,
             textAlign: "center",
+            fontFamily: "'Montserrat', sans-serif",
           }}
         >
           viral audio, on tape
