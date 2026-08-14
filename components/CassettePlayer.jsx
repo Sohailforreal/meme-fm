@@ -139,7 +139,26 @@ function createRoundedBoxGeometry(width, height, depth, radius, smoothness = 4) 
   return geometry;
 }
 
-
+function makeGunmetalNoiseTexture() {
+  const size = 256;
+  const canvas = document.createElement("canvas");
+  canvas.width = size;
+  canvas.height = size;
+  const ctx = canvas.getContext("2d");
+  ctx.fillStyle = "#3a3d40";
+  ctx.fillRect(0, 0, size, size);
+  const img = ctx.getImageData(0, 0, size, size);
+  for (let i = 0; i < img.data.length; i += 4) {
+    const n = (Math.random() - 0.5) * 30;
+    img.data[i] += n;
+    img.data[i + 1] += n;
+    img.data[i + 2] += n;
+  }
+  ctx.putImageData(img, 0, 0);
+  const tex = new THREE.CanvasTexture(canvas);
+  tex.needsUpdate = true;
+  return tex;
+}
 
 function makeSpoolTexture() {
   const size = 512;
@@ -510,7 +529,21 @@ scene.add(backdrop);
     const frontMat = new THREE.MeshStandardMaterial({ map: gradientTex, roughness: 0.5, metalness: 0.25 });
     const sideMat = new THREE.MeshStandardMaterial({ color: new THREE.Color(SHELL), roughness: 0.65, metalness: 0.12 });
     const bodyGeo = createRoundedBoxGeometry(3.6, 2.2, 0.3, 0.15);
-    const body = new THREE.Mesh(bodyGeo, [frontMat, sideMat]);
+    const capsGroup = bodyGeo.groups[0];
+const half = capsGroup.count / 2;
+const sideGroup = bodyGeo.groups[1];
+bodyGeo.clearGroups();
+bodyGeo.addGroup(capsGroup.start, half, 0);              // back cap
+bodyGeo.addGroup(capsGroup.start + half, half, 1);        // front cap
+bodyGeo.addGroup(sideGroup.start, sideGroup.count, 2);    // side walls
+    
+    const backMat = new THREE.MeshStandardMaterial({
+  map: makeGunmetalNoiseTexture(),
+  metalness: 0.92,
+  roughness: 0.80,
+});
+const body = new THREE.Mesh(bodyGeo, [backMat, frontMat, sideMat]);
+    
     group.add(body);
     const labelGeo = new THREE.PlaneGeometry(3.2, 1.7);
     const labelMat = new THREE.MeshBasicMaterial({ map: makeLabelTexture(song), transparent: true });
@@ -536,7 +569,7 @@ scene.add(backdrop);
     const holeMat = new THREE.MeshBasicMaterial({ color: 0x0a0a0a });
     [-1.2, -0.4, 0.4, 1.2].forEach((x) => {
       const hole = new THREE.Mesh(holeGeo, holeMat);
-      hole.position.set(x, -1.3, 0.235);
+      hole.position.set(x, -1.3, 0.213);
       group.add(hole);
     });
 
@@ -676,6 +709,8 @@ scene.add(backdrop);
       frontMat.dispose();
       sideMat.dispose();
       if (labelMat.map) labelMat.map.dispose();
+      if (backMat.map) backMat.map.dispose();
+      backMat.dispose();
       labelMat.dispose();
       leftMat.dispose();
       rightMat.dispose();
@@ -684,6 +719,7 @@ scene.add(backdrop);
       holeGeo.dispose();
       holeMat.dispose();
       renderer.dispose();
+      
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
