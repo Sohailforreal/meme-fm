@@ -16,11 +16,24 @@ function makeLabelTexture(song) {
   canvas.height = h;
   const ctx = canvas.getContext("2d");
 
-  ctx.fillStyle = CREAM;
-  ctx.fillRect(0, 0, w, h);
-  ctx.strokeStyle = INK;
-  ctx.lineWidth = 6;
-  ctx.strokeRect(10, 10, w - 20, h - 20);
+  function roundRectPath(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.arcTo(x + w, y, x + w, y + h, r);
+  ctx.arcTo(x + w, y + h, x, y + h, r);
+  ctx.arcTo(x, y + h, x, y, r);
+  ctx.arcTo(x, y, x + w, y, r);
+  ctx.closePath();
+}
+
+ctx.fillStyle = CREAM;
+roundRectPath(ctx, 0, 0, w, h, 40);
+ctx.fill();
+
+ctx.strokeStyle = INK;
+ctx.lineWidth = 6;
+roundRectPath(ctx, 10, 10, w - 20, h - 20, 32);
+ctx.stroke();
 
   ctx.beginPath();
   ctx.moveTo(60, 40);
@@ -406,22 +419,33 @@ export default function CassettePlayer({ songs }) {
     };
 
     loadYouTubeAPI().then((YT) => {
-      if (!YT || cancelled) return;
-      const list = songsRef.current;
-      const first = list[0];
-      const second = list[1 % list.length];
+  if (!YT || cancelled) return;
+  const list = songsRef.current;
+  const first = list[0];
+  const second = list[1 % list.length];
 
-      playerARef.current = new YT.Player(hostA, {
-        videoId: first?.youtubeId,
-        playerVars: { autoplay: 0, controls: 0, playsinline: 1, disablekb: 1 },
-        events: { onStateChange: onStateChangeFor("A") },
-      });
-      playerBRef.current = new YT.Player(hostB, {
-        videoId: second?.youtubeId,
-        playerVars: { autoplay: 0, controls: 0, playsinline: 1, disablekb: 1 },
-        events: { onStateChange: onStateChangeFor("B") },
-      });
-    });
+  playerARef.current = new YT.Player(hostA, {
+    videoId: first?.youtubeId,
+    playerVars: { autoplay: 0, controls: 0, playsinline: 1, disablekb: 1 },
+    events: {
+      onStateChange: onStateChangeFor("A"),
+      onReady: () => {
+        if (cancelled) return;
+        playerARef.current.setPlaybackQuality('tiny');
+        playerBRef.current = new YT.Player(hostB, {
+          videoId: second?.youtubeId,
+          playerVars: { autoplay: 0, controls: 0, playsinline: 1, disablekb: 1 },
+          events: {
+            onStateChange: onStateChangeFor("B"),
+            onReady: () => {
+              playerBRef.current.setPlaybackQuality('tiny');
+            },
+          },
+        });
+      },
+    },
+  });
+});
 
     return () => {
       cancelled = true;
@@ -508,9 +532,11 @@ scene.add(backdrop);
     const ridge = new THREE.Mesh(ridgeGeo, ridgeMat);
     ridge.position.y = -1.3;
     group.add(ridge);
+    const holeGeo = new THREE.CircleGeometry(0.09, 20);
+    const holeMat = new THREE.MeshBasicMaterial({ color: 0x0a0a0a });
     [-1.2, -0.4, 0.4, 1.2].forEach((x) => {
-      const hole = new THREE.Mesh(new THREE.CircleGeometry(0.09, 20), new THREE.MeshBasicMaterial({ color: 0x0a0a0a }));
-      hole.position.set(x, -1.3, 0.17);
+      const hole = new THREE.Mesh(holeGeo, holeMat);
+      hole.position.set(x, -1.3, 0.235);
       group.add(hole);
     });
 
@@ -641,10 +667,23 @@ scene.add(backdrop);
       bodyGeo.dispose();
       labelGeo.dispose();
       reelGeo.dispose();
-      
+
       backdropGeo.dispose();
       backdropMat.map.dispose();
       backdropMat.dispose();
+
+      if (frontMat.map) frontMat.map.dispose();
+      frontMat.dispose();
+      sideMat.dispose();
+      if (labelMat.map) labelMat.map.dispose();
+      labelMat.dispose();
+      leftMat.dispose();
+      rightMat.dispose();
+      ridgeGeo.dispose();
+      ridgeMat.dispose();
+      holeGeo.dispose();
+      holeMat.dispose();
+      renderer.dispose();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
