@@ -476,21 +476,21 @@ scene.add(backdrop);
     const frontMat = new THREE.MeshStandardMaterial({ map: gradientTex, roughness: 0.5, metalness: 0.25 });
     const sideMat = new THREE.MeshStandardMaterial({ color: new THREE.Color(SHELL), roughness: 0.65, metalness: 0.12 });
     const bodyGeo = createRoundedBoxGeometry(3.6, 2.2, 0.3, 0.15);
-    const body = new THREE.Mesh(bodyGeo, [sideMat, frontMat]);
+    const body = new THREE.Mesh(bodyGeo, [frontMat, sideMat]);
     group.add(body);
     const labelGeo = new THREE.PlaneGeometry(3.2, 1.7);
     const labelMat = new THREE.MeshBasicMaterial({ map: makeLabelTexture(song), transparent: true });
     const label = new THREE.Mesh(labelGeo, labelMat);
-    label.position.z = 0.155;
+    label.position.z = 0.225;
     group.add(label);
 
     const reelGeo = new THREE.CircleGeometry(0.42, 40);
     const leftMat = new THREE.MeshBasicMaterial({ map: makePlaceholderPhotoTexture(song.initials), transparent: true });
     const rightMat = new THREE.MeshBasicMaterial({ map: makeSpoolTexture() });
     const leftReel = new THREE.Mesh(reelGeo, leftMat);
-    leftReel.position.set(-0.78, -0.02, 0.17);
+    leftReel.position.set(-0.78, -0.02, 0.235);
     const rightReel = new THREE.Mesh(reelGeo, rightMat);
-    rightReel.position.set(0.78, -0.02, 0.17);
+    rightReel.position.set(0.78, -0.02, 0.235);
     group.add(leftReel, rightReel);
 
     const ridgeGeo = new THREE.BoxGeometry(3.6, 0.4, 0.32);
