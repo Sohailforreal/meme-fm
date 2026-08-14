@@ -27,8 +27,9 @@
     { "id": 24, "title": "DJ Pritam", "youtubeId": "nPi987PYf8w", "image": "/images/songs/pritam.jpg", "initials": "DP", "era": "2023-24", "vibeTag": "chaotic", "origin": "Draft origin note — verify" },
     { "id": 26, "title": "Gucci: Ravi Kishan", "youtubeId": "oBoih0nyT6c", "image": "/images/songs/ravi.jpg", "initials": "GR", "era": "2024", "vibeTag": "swag-troll", "origin": "Draft origin note — verify" },
     { "id": 25, "title": "Sanni Dancer", "youtubeId": "B-tehKMq9-s", "image": "/images/songs/sanni.jpg", "initials": "SD", "era": "2023-24", "vibeTag": "dance-troll", "origin": "Draft origin note — verify" },
-    { "id": 27, "title": "Bole Jo Koyal Bago Mai", "youtubeId": "38R9uQT4mkc", "image": "/images/songs/msd.jpg", "initials": "BK", "era": "classic", "vibeTag": "nostalgic-troll", "origin": "Draft origin note — verify" },
+    { "id": 27, "title": "Bole Jo Koyal Bago Mai", "youtubeId": "38R9uQT4mkc", "image": "/images/songs/koyal.jpg", "initials": "BK", "era": "classic", "vibeTag": "nostalgic-troll", "origin": "Draft origin note — verify" },
     { "id": 28, "title": "Rana Ji", "youtubeId": "iiGM4g1QQGM", "image": "/images/songs/rana.jpg", "initials": "RM", "era": "2023-24", "vibeTag": "dialogue-meme", "origin": "Draft origin note — verify" },
-    { "id": 29, "title": "Dhoom (Rare)", "youtubeId": "0rzZaFwGnxU", "image": "/images/songs/dhoom.jpg", "initials": "DH", "era": "2024", "vibeTag": "High-On-Song", "origin": "Owner himself" }
+    { "id": 29, "title": "Dhoom (Rare)", "youtubeId": "0rzZaFwGnxU", "image": "/images/songs/dhoom.jpg", "initials": "DH", "era": "2024", "vibeTag": "High-On-Song", "origin": "Owner himself" },
+    { "id": 30, "title": "MSD 7", "youtubeId": "SQKi4TRld6M", "image": "/images/songs/msd.jpg", "initials": "MS", "era": "2024", "vibeTag": "Thala for a Reason", "origin": "Thala for a reason" }
   ]
 }
