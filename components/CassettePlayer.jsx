@@ -96,6 +96,38 @@ function makePlaceholderPhotoTexture(initials) {
   return tex;
 }
 
+function createRoundedBoxGeometry(width, height, depth, radius, smoothness = 4) {
+  const shape = new THREE.Shape();
+  const x = -width / 2;
+  const y = -height / 2;
+  const w = width;
+  const h = height;
+  const r = radius;
+
+  shape.moveTo(x, y + r);
+  shape.lineTo(x, y + h - r);
+  shape.quadraticCurveTo(x, y + h, x + r, y + h);
+  shape.lineTo(x + w - r, y + h);
+  shape.quadraticCurveTo(x + w, y + h, x + w, y + h - r);
+  shape.lineTo(x + w, y + r);
+  shape.quadraticCurveTo(x + w, y, x + w - r, y);
+  shape.lineTo(x + r, y);
+  shape.quadraticCurveTo(x, y, x, y + r);
+
+  const geometry = new THREE.ExtrudeGeometry(shape, {
+    depth,
+    bevelEnabled: true,
+    bevelThickness: radius * 0.4,
+    bevelSize: radius * 0.4,
+    bevelSegments: smoothness,
+    curveSegments: smoothness,
+  });
+  geometry.center();
+  return geometry;
+}
+
+
+
 function makeSpoolTexture() {
   const size = 512;
   const canvas = document.createElement("canvas");
@@ -443,10 +475,9 @@ scene.add(backdrop);
     const gradientTex = makeShellGradientTexture();
     const frontMat = new THREE.MeshStandardMaterial({ map: gradientTex, roughness: 0.5, metalness: 0.25 });
     const sideMat = new THREE.MeshStandardMaterial({ color: new THREE.Color(SHELL), roughness: 0.65, metalness: 0.12 });
-    const bodyGeo = new THREE.BoxGeometry(3.6, 2.2, 0.3);
-    const body = new THREE.Mesh(bodyGeo, [sideMat, sideMat, sideMat, sideMat, frontMat, frontMat]);
-    group.add(body);
-
+    const bodyGeo = createRoundedBoxGeometry(3.6, 2.2, 0.3, 0.15);
+    const body = new THREE.Mesh(bodyGeo, [sideMat, frontMat]);
+    
     const labelGeo = new THREE.PlaneGeometry(3.2, 1.7);
     const labelMat = new THREE.MeshBasicMaterial({ map: makeLabelTexture(song), transparent: true });
     const label = new THREE.Mesh(labelGeo, labelMat);
