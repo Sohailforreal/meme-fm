@@ -586,8 +586,8 @@ const body = new THREE.Mesh(bodyGeo, [backMat, frontMat, sideMat]);
         if (moving) {
           group.rotation.y += inertia.vx;
           group.rotation.x += inertia.vy;
-          inertia.vx *= 0.93;
-          inertia.vy *= 0.93;
+          inertia.vx *= 0.88;
+          inertia.vy *= 0.88;
         } else {
           const targetY = Math.sin(t * 0.4) * 0.16 + hoverRef.current.x * 0.18;
           const targetX = Math.sin(t * 0.3) * 0.03 + hoverRef.current.y * 0.1;
