@@ -26,12 +26,11 @@ export default function Home() {
         <div
           style={{
             fontSize: 13,
-            letterSpacing: 2,
             textTransform: "uppercase",
             opacity: 0.6,
             marginBottom: 8,
             textAlign: "center",
-            fontFamily: "'Montserrat', sans-serif",
+            fontFamily: "'DM Sans', sans-serif",
           }}
         >
           viral audio, on tape
