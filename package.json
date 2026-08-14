@@ -1,0 +1,21 @@
+{
+  "name": "meme-fm",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "14.2.35",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "three": "0.160.0"
+  },
+  "description": "A cassette-tape style player for viral meme songs. Built with Next.js + Three.js.",
+  "main": "next.config.js",
+  "devDependencies": {},
+  "author": "",
+  "license": "ISC"
+}

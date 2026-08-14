@@ -1,0 +1,51 @@
+* {
+  box-sizing: border-box;
+}
+a, button {
+  -webkit-tap-highlight-color: transparent;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #F3EEE2;
+  color: #141210;
+  font-family: Georgia, serif;
+}
+
+.page-wrap {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.voronoi-bg {
+  position: fixed;
+  inset: -20%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.18;
+  background-image: radial-gradient(#141210 1px, transparent 1.4px);
+  background-size: 22px 22px;
+  animation: voronoiDrift 70s linear infinite;
+}
+
+@keyframes voronoiDrift {
+  0%   { background-position: 0 0; }
+  100% { background-position: 22px 44px; }
+}
+.content {
+  position: relative;
+  z-index: 1;
+}
+
+.wordmark-link {
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.wordmark-link:active {
+  transform: scale(0.94);
+  opacity: 0.8;
+}

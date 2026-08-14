@@ -1,0 +1,33 @@
+{
+  "_note": "era, vibeTag, and origin are DRAFT placeholders — edit with real context. image: '' falls back to initials placeholder; fill with '/images/songs/xx.jpg' once you crop your screenshots.",
+  "songs": [
+    { "id": 1, "title": "Kaka × Khandu Don", "youtubeId": "NuXmkglTtq8", "image": "/images/songs/kakaji.jpg", "initials": "KK", "era": "2023-24", "vibeTag": "chaotic-crossover", "origin": "Draft origin note — verify" },
+    { "id": 2, "title": "Khandu Don", "youtubeId": "wLN7Rc4mFpg", "image": "/images/songs/don.jpg", "initials": "KD", "era": "2023-24", "vibeTag": "chaotic", "origin": "Draft origin note — verify" },
+    { "id": 3, "title": "Dil Vich Tere Liye", "youtubeId": "1W8mdBxgSoY", "image": "/images/songs/time.jpg", "initials": "DV", "era": "2024", "vibeTag": "romantic-troll", "origin": "Draft origin note — verify" },
+    { "id": 4, "title": "Darshan", "youtubeId": "1moU2lS4_ds", "image": "/images/songs/darshan.jpg", "initials": "DA", "era": "2024", "vibeTag": "wholesome-chaotic", "origin": "Draft origin note — verify" },
+    { "id": 5, "title": "Arjun Arnab", "youtubeId": "8P7wRygLbeE", "image": "/images/songs/aa.jpg", "initials": "AA", "era": "2023", "vibeTag": "dialogue-meme", "origin": "Draft origin note — verify" },
+    { "id": 6, "title": "Mahesh Dalle", "youtubeId": "yBwurgb1M3w", "image": "/images/songs/md.jpg", "initials": "MD", "era": "2023-24", "vibeTag": "chaotic", "origin": "Draft origin note — verify" },
+    { "id": 7, "title": "Oye Hoye Kya Scene Hai", "youtubeId": "c2n3bre-sHs", "image": "/images/songs/oyehoye.jpg", "initials": "OH", "era": "2023-24", "vibeTag": "swag-troll", "origin": "Draft origin note — verify" },
+    { "id": 8, "title": "Kab Aaoge Mere Akhilesh", "youtubeId": "3XW5xdyV-b0", "image": "/images/songs/akh.jpeg", "initials": "KA", "era": "2024", "vibeTag": "romantic-troll", "origin": "Draft origin note — verify" },
+    { "id": 9, "title": "Rinkya Ke Papa", "youtubeId": "sbKNwKBzE34", "image": "/images/songs/rinks.jpeg", "initials": "RP", "era": "2023", "vibeTag": "absurdist", "origin": "Draft origin note — verify" },
+    { "id": 10, "title": "Mera Dola Ni Aaya", "youtubeId": "bT9LmtpfyiI", "image": "/images/songs/ravi2.jpg", "initials": "MN", "era": "2024", "vibeTag": "romantic-troll", "origin": "Draft origin note — verify" },
+    { "id": 11, "title": "Danish Zehen", "youtubeId": "9jO0rXFYzB8", "image": "/images/songs/dz.jpeg", "initials": "DZ", "era": "2024", "vibeTag": "tribute-meme", "origin": "Draft origin note — verify" },
+    { "id": 12, "title": "Softly", "youtubeId": "iy_LQNE6tiI", "image": "/images/songs/softly.jpg", "initials": "SF", "era": "2024-25", "vibeTag": "dance-troll", "origin": "Draft origin note — verify" },
+    { "id": 13, "title": "Dard Hua Dard Hua", "youtubeId": "3TazGVGfyIU", "image": "/images/songs/dard.jpg", "initials": "DH", "era": "2023-24", "vibeTag": "sad-troll", "origin": "Draft origin note — verify" },
+    { "id": 14, "title": "Tere Naino Mai", "youtubeId": "AfqvXCtP3jU", "image": "/images/songs/eyes.jpg", "initials": "TN", "era": "2023-24", "vibeTag": "romantic-troll", "origin": "Draft origin note — verify" },
+    { "id": 15, "title": "Arjun Kapoor", "youtubeId": "uUex8ZupmfI", "image": "/images/songs/arjun.jpg", "initials": "UJ", "era": "2023-24", "vibeTag": "gangster-troll", "origin": "Draft origin note — verify" },
+    { "id": 16, "title": "What Is Love", "youtubeId": "jc3VaeJlWj4", "image": "/images/songs/love.jpg", "initials": "WL", "era": "2023-24", "vibeTag": "absurdist", "origin": "Draft origin note — verify" },
+    { "id": 17, "title": "Moye Moye", "youtubeId": "YCeUmFGKhyY", "image": "/images/songs/mm.jpg", "initials": "MM", "era": "2024", "vibeTag": "sad-troll", "origin": "Draft origin note — verify" },
+    { "id": 18, "title": "Sawan Ka Pani", "youtubeId": "xysOMG-rTmM", "image": "/images/songs/pani.jpg", "initials": "PB", "era": "2023-24", "vibeTag": "nostalgic-troll", "origin": "Draft origin note — verify" },
+    { "id": 19, "title": "Aukat", "youtubeId": "JqijNPgWq9E", "image": "/images/songs/aukat.jpeg", "initials": "AD", "era": "2023-24", "vibeTag": "savage-troll", "origin": "Draft origin note — verify" },
+    { "id": 20, "title": "Modi Ji", "youtubeId": "ZABNNGqfKLM", "image": "/images/songs/modiji.png", "initials": "MO", "era": "2023-24", "vibeTag": "political-meme", "origin": "Draft origin note — verify" },
+    { "id": 21, "title": "Free Fire", "youtubeId": "HKHxLyjKGN4", "image": "/images/songs/arpit.jpg", "initials": "FF", "era": "2022-23", "vibeTag": "gaming-troll", "origin": "Draft origin note — verify" },
+    { "id": 22, "title": "Kacha Badam", "youtubeId": "0zSxTxQFum4", "image": "/images/songs/badam.jpg", "initials": "KB", "era": "2022", "vibeTag": "viral-classic", "origin": "Bhuban Badyakar's peanut-seller chant, viral folk-to-meme crossover — verify details" },
+    { "id": 23, "title": "Jonny Jonny", "youtubeId": "6o4Hl2KCe1Q", "image": "/images/songs/jj.jpg", "initials": "JJ", "era": "2020-21", "vibeTag": "nursery-remix", "origin": "Draft origin note — verify" },
+    { "id": 24, "title": "DJ Pritam", "youtubeId": "nPi987PYf8w", "image": "/images/songs/pritam.jpg", "initials": "DP", "era": "2023-24", "vibeTag": "chaotic", "origin": "Draft origin note — verify" },
+    { "id": 26, "title": "Gucci: Ravi Kishan", "youtubeId": "oBoih0nyT6c", "image": "/images/songs/ravi.jpg", "initials": "GR", "era": "2024", "vibeTag": "swag-troll", "origin": "Draft origin note — verify" },
+    { "id": 25, "title": "Sanni Dancer", "youtubeId": "B-tehKMq9-s", "image": "/images/songs/sanni.jpg", "initials": "SD", "era": "2023-24", "vibeTag": "dance-troll", "origin": "Draft origin note — verify" },
+    { "id": 27, "title": "Bole Jo Koyal Bago Mai", "youtubeId": "38R9uQT4mkc", "image": "/images/songs/msd.jpg", "initials": "BK", "era": "classic", "vibeTag": "nostalgic-troll", "origin": "Draft origin note — verify" },
+    { "id": 28, "title": "Rana Ji", "youtubeId": "iiGM4g1QQGM", "image": "/images/songs/rana.jpg", "initials": "RM", "era": "2023-24", "vibeTag": "dialogue-meme", "origin": "Draft origin note — verify" }
+  ]
+}
