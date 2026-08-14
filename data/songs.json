@@ -1,8 +1,8 @@
 {
   "_note": "era, vibeTag, and origin are DRAFT placeholders — edit with real context. image: '' falls back to initials placeholder; fill with '/images/songs/xx.jpg' once you crop your screenshots.",
   "songs": [
-    { "id": 1, "title": "Kaka × Khandu Don", "youtubeId": "NuXmkglTtq8", "image": "/images/songs/kakaji.jpg", "initials": "KK", "era": "2023-24", "vibeTag": "chaotic-crossover", "origin": "Draft origin note — verify" },
-    { "id": 2, "title": "Khandu Don", "youtubeId": "wLN7Rc4mFpg", "image": "/images/songs/don.jpg", "initials": "KD", "era": "2023-24", "vibeTag": "chaotic", "origin": "Draft origin note — verify" },
+    { "id": 1, "title": "Kaka", "youtubeId": "DXmqV1qZK-M", "image": "/images/songs/kakaji.jpg", "initials": "KK", "era": "2023-24", "vibeTag": "chaotic-crossover", "origin": "Draft origin note — verify" },
+    { "id": 2, "title": "Khandu Don", "youtubeId": "KXYNCtGEb8w", "image": "/images/songs/don.jpg", "initials": "KD", "era": "2023-24", "vibeTag": "chaotic", "origin": "Draft origin note — verify" },
     { "id": 3, "title": "Dil Vich Tere Liye", "youtubeId": "1W8mdBxgSoY", "image": "/images/songs/time.jpg", "initials": "DV", "era": "2024", "vibeTag": "romantic-troll", "origin": "Draft origin note — verify" },
     { "id": 4, "title": "Darshan", "youtubeId": "1moU2lS4_ds", "image": "/images/songs/darshan.jpg", "initials": "DA", "era": "2024", "vibeTag": "wholesome-chaotic", "origin": "Draft origin note — verify" },
     { "id": 5, "title": "Arjun Arnab", "youtubeId": "8P7wRygLbeE", "image": "/images/songs/aa.jpg", "initials": "AA", "era": "2023", "vibeTag": "dialogue-meme", "origin": "Draft origin note — verify" },
@@ -28,6 +28,7 @@
     { "id": 26, "title": "Gucci: Ravi Kishan", "youtubeId": "oBoih0nyT6c", "image": "/images/songs/ravi.jpg", "initials": "GR", "era": "2024", "vibeTag": "swag-troll", "origin": "Draft origin note — verify" },
     { "id": 25, "title": "Sanni Dancer", "youtubeId": "B-tehKMq9-s", "image": "/images/songs/sanni.jpg", "initials": "SD", "era": "2023-24", "vibeTag": "dance-troll", "origin": "Draft origin note — verify" },
     { "id": 27, "title": "Bole Jo Koyal Bago Mai", "youtubeId": "38R9uQT4mkc", "image": "/images/songs/msd.jpg", "initials": "BK", "era": "classic", "vibeTag": "nostalgic-troll", "origin": "Draft origin note — verify" },
-    { "id": 28, "title": "Rana Ji", "youtubeId": "iiGM4g1QQGM", "image": "/images/songs/rana.jpg", "initials": "RM", "era": "2023-24", "vibeTag": "dialogue-meme", "origin": "Draft origin note — verify" }
+    { "id": 28, "title": "Rana Ji", "youtubeId": "iiGM4g1QQGM", "image": "/images/songs/rana.jpg", "initials": "RM", "era": "2023-24", "vibeTag": "dialogue-meme", "origin": "Draft origin note — verify" },
+    { "id": 29, "title": "Dhoom (Rare)", "youtubeId": "0rzZaFwGnxU", "image": "/images/songs/dz.jpeg", "initials": "DH", "era": "2024", "vibeTag": "High-On-Song", "origin": "Owner himself" },
   ]
 }
