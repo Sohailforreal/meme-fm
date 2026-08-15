@@ -441,8 +441,9 @@ export default function CassettePlayer({ songs, initialIndex = 0, onSongChange }
     loadYouTubeAPI().then((YT) => {
   if (!YT || cancelled) return;
   const list = songsRef.current;
-  const first = list[0];
-  const second = list[1 % list.length];
+  const startIdx = indexRef.current;
+  const first = list[startIdx];
+  const second = list[(startIdx + 1) % list.length];
 
   playerARef.current = new YT.Player(hostA, {
     videoId: first?.youtubeId,
