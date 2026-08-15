@@ -23,16 +23,30 @@ function ShareGlyph({ size = 20, color = TEXT_DARK }) {
 
 export default function ShareButton({ title = "Meme FM", text = "Check this out!", url, onClick }) {
   const [isActive, setIsActive] = useState(false);
-  const [btnText, setBtnText] = useState("show it to your MEME NERD");
+  const [btnText, setBtnText] = useState("SHOW IT TO UR MEME NERD");
 
-  const triggerFeedback = (message) => {
-    setIsActive(true);
-    setBtnText(message);
+  const copyToClipboard = async (textToCopy) => {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      try {
+        await navigator.clipboard.writeText(textToCopy);
+        return true;
+      } catch (err) {}
+    }
 
-    setTimeout(() => {
-      setIsActive(false);
-      setBtnText("SHOW IT TO UR MEME NERD");
-    }, 2000);
+    try {
+      const textArea = document.createElement("textarea");
+      textArea.value = textToCopy;
+      textArea.style.position = "fixed";
+      textArea.style.opacity = "0";
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      const successful = document.execCommand("copy");
+      document.body.removeChild(textArea);
+      return successful;
+    } catch (err) {
+      return false;
+    }
   };
 
   const handleShare = async (e) => {
@@ -41,32 +55,73 @@ export default function ShareButton({ title = "Meme FM", text = "Check this out!
     const shareUrl = url || window.location.href;
     const shareData = { title, text, url: shareUrl };
 
-    // Try native device share menu first (mobile / Web Share API)
+    setIsActive(true);
+    setBtnText(navigator.share ? "OPENING..." : "LINK COPIED!");
+
+    // 200ms delay to ensure the active color state renders smoothly before native share modal pops
+    await new Promise((resolve) => setTimeout(resolve, 200));
+
     if (navigator.share) {
       try {
         await navigator.share(shareData);
-        triggerFeedback("SHARED!");
-      } catch (err) {
-        // User cancelled share action
-      }
+      } catch (err) {}
     } else {
-      // Fallback: Copy link to clipboard for desktop browsers
-      try {
-        await navigator.clipboard.writeText(shareUrl);
-        triggerFeedback("LINK COPIED!");
-      } catch (err) {
-        triggerFeedback("COULD NOT COPY");
-      }
+      await copyToClipboard(shareUrl);
     }
+
+    setTimeout(() => {
+      setIsActive(false);
+      setBtnText("SHOW IT TO UR MEME NERD");
+    }, 2000);
   };
 
   return (
     <div style={{ width: "100%", maxWidth: 420, margin: "20px auto 0", boxSizing: "border-box" }}>
+      <style>{`
+        @keyframes lineTravel {
+          0% {
+            transform: translateX(-150%);
+          }
+          35% {
+            transform: translateX(150%);
+          }
+          100% {
+            transform: translateX(150%);
+          }
+        }
+        .line-shine::after {
+          content: "";
+          position: absolute;
+          top: -50%;
+          left: 0;
+          width: 100%;
+          height: 200%;
+          background: linear-gradient(
+            -65deg,
+            transparent 0%,
+            transparent 40%,
+            rgba(255, 255, 255, 0.85) 40%,
+            rgba(255, 255, 255, 0.85) calc(40% + 4px),
+            transparent calc(40% + 4px),
+            transparent calc(40% + 12px),
+            rgba(255, 255, 255, 0.85) calc(40% + 12px),
+            rgba(255, 255, 255, 0.85) calc(40% + 16px),
+            transparent calc(40% + 16px),
+            transparent 100%
+          );
+          animation: lineTravel 6s ease-in infinite;
+          pointer-events: none;
+        }
+      `}</style>
+
       <button
         onClick={handleShare}
+        className={!isActive ? "line-shine" : ""}
         style={{
           appearance: "none",
           WebkitAppearance: "none",
+          position: "relative",
+          overflow: "hidden",
           width: "100%",
           display: "flex",
           alignItems: "center",
@@ -81,15 +136,18 @@ export default function ShareButton({ title = "Meme FM", text = "Check this out!
           fontWeight: 600,
           fontSize: 13,
           letterSpacing: 0.5,
+          textTransform: "uppercase",
           cursor: "pointer",
           boxSizing: "border-box",
-          transition: "all 0.15s ease",
+          transition: "background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.1s ease",
           transform: isActive ? "scale(0.98)" : "scale(1)",
         }}
       >
-        {btnText}
-        <ShareGlyph color={isActive ? "#FFFFFF" : TEXT_DARK} />
+        <span style={{ position: "relative", zIndex: 1 }}>{btnText}</span>
+        <div style={{ position: "relative", zIndex: 1, display: "flex", alignItems: "center" }}>
+          <ShareGlyph color={isActive ? "#FFFFFF" : TEXT_DARK} />
+        </div>
       </button>
     </div>
   );
-}
+                }
