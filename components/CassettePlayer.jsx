@@ -358,7 +358,8 @@ export default function CassettePlayer({ songs }) {
   const activeKeyRef = useRef("A"); // "A" | "B"
   const indexRef = useRef(0);
   const songsRef = useRef(songs);
-
+  const playingRef = useRef(false);
+  useEffect(() => { playingRef.current = playing; }, [playing]);
   useEffect(() => { indexRef.current = index; }, [index]);
   useEffect(() => { songsRef.current = songs; }, [songs]);
   useEffect(() => {
@@ -451,6 +452,9 @@ export default function CassettePlayer({ songs }) {
       onReady: () => {
         if (cancelled) return;
         playerARef.current.setPlaybackQuality('tiny');
+        if (playingRef.current && activeKeyRef.current === "A") {
+        playerARef.current.playVideo();
+        }
         playerBRef.current = new YT.Player(hostB, {
           videoId: second?.youtubeId,
           playerVars: { autoplay: 0, controls: 0, playsinline: 1, disablekb: 1 },
