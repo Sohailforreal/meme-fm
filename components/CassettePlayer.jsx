@@ -820,7 +820,11 @@ ds.vy = Math.max(-MAX_V, Math.min(MAX_V, (dy * 0.006) * (16 / dt)));
   useEffect(() => {
     if (onSongChange) onSongChange(song);
   }, [song, onSongChange]);
-
+  
+  useEffect(() => {
+  setIndex(initialIndex);
+  }, [initialIndex]);
+  
   return (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
       <div
