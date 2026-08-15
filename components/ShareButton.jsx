@@ -8,10 +8,10 @@ const TEXT_DARK = "#334155";
 function ShareGlyph({ size = 20, color = TEXT_DARK }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
-      <path d="M12 3v12" stroke={color} strokeWidth="1.8" strokeLinecap="round" />
-      <path d="M7 8l5-5 5 5" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M12 3V10" stroke={color} strokeWidth="1.8" strokeLinecap="round" />
+      <path d="M7.5 8L12 3L16.5 8" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
       <path
-        d="M5 12v6.5A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5V12"
+        d="M5 12V18.5A1.5 1.5 0 0 0 6.5 20H17.5A1.5 1.5 0 0 0 19 18.5V12"
         stroke={color}
         strokeWidth="1.8"
         strokeLinecap="round"
@@ -21,9 +21,9 @@ function ShareGlyph({ size = 20, color = TEXT_DARK }) {
   );
 }
 
-export default function ShareButton({ title = "Meme FM", text = "Check this out!", url, onClick }) {
+export default function ShareButton({ title = "Meme FM", text = "bro I found these memes!", url, onClick }) {
   const [isActive, setIsActive] = useState(false);
-  const [btnText, setBtnText] = useState("SHOW IT TO UR MEME NERD");
+  const [btnText, setBtnText] = useState("SHOW IT TO YOUR MEME NERD");
 
   const copyToClipboard = async (textToCopy) => {
     if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -58,7 +58,6 @@ export default function ShareButton({ title = "Meme FM", text = "Check this out!
     setIsActive(true);
     setBtnText(navigator.share ? "OPENING..." : "LINK COPIED!");
 
-    // 200ms delay to ensure the active color state renders smoothly before native share modal pops
     await new Promise((resolve) => setTimeout(resolve, 200));
 
     if (navigator.share) {
@@ -71,45 +70,47 @@ export default function ShareButton({ title = "Meme FM", text = "Check this out!
 
     setTimeout(() => {
       setIsActive(false);
-      setBtnText("SHOW IT TO UR MEME NERD");
+      setBtnText("SHOW IT TO YOUR MEME NERD");
     }, 2000);
   };
 
   return (
     <div style={{ width: "100%", maxWidth: 420, margin: "20px auto 0", boxSizing: "border-box" }}>
       <style>{`
-        @keyframes lineTravel {
+        @keyframes shineSweep {
           0% {
-            transform: translateX(-150%);
+            transform: translateX(-120%) skewX(-20deg);
+            opacity: 0;
           }
-          35% {
-            transform: translateX(150%);
+          8% {
+            opacity: 1;
+          }
+          32% {
+            transform: translateX(220%) skewX(-20deg);
+            opacity: 0;
           }
           100% {
-            transform: translateX(150%);
+            transform: translateX(220%) skewX(-20deg);
+            opacity: 0;
           }
         }
         .line-shine::after {
           content: "";
           position: absolute;
-          top: -50%;
+          top: -30%;
           left: 0;
-          width: 100%;
-          height: 200%;
+          width: 32%;
+          height: 160%;
           background: linear-gradient(
-            -65deg,
+            100deg,
             transparent 0%,
-            transparent 40%,
-            rgba(255, 255, 255, 0.85) 40%,
-            rgba(255, 255, 255, 0.85) calc(40% + 4px),
-            transparent calc(40% + 4px),
-            transparent calc(40% + 12px),
-            rgba(255, 255, 255, 0.85) calc(40% + 12px),
-            rgba(255, 255, 255, 0.85) calc(40% + 16px),
-            transparent calc(40% + 16px),
+            rgba(255, 255, 255, 0.06) 30%,
+            rgba(255, 255, 255, 0.45) 50%,
+            rgba(255, 255, 255, 0.06) 70%,
             transparent 100%
           );
-          animation: lineTravel 6s ease-in infinite;
+          transform: translateX(-120%) skewX(-20deg);
+          animation: shineSweep 5.5s cubic-bezier(0.22, 1, 0.36, 1) infinite;
           pointer-events: none;
         }
       `}</style>
@@ -150,4 +151,5 @@ export default function ShareButton({ title = "Meme FM", text = "Check this out!
       </button>
     </div>
   );
-                }
+      }
+                       
