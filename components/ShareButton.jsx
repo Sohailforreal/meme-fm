@@ -23,7 +23,7 @@ function ShareGlyph({ size = 20, color = TEXT_DARK }) {
 
 export default function ShareButton({ title = "Meme FM", text = "Check this out!", url, onClick }) {
   const [isActive, setIsActive] = useState(false);
-  const [btnText, setBtnText] = useState("SHOW IT TO UR MEME NERD");
+  const [btnText, setBtnText] = useState("show it to your MEME NERD");
 
   const triggerFeedback = (message) => {
     setIsActive(true);
