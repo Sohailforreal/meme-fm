@@ -1,6 +1,7 @@
 import VoronoiBackground from "../components/VoronoiBackground";
 import CassettePlayer from "../components/CassettePlayer";
 import Footer from "../components/Footer";
+import ShareButton from "../components/ShareButton";
 import songsData from "../data/songs.json";
 
 export default function Home() {
@@ -37,6 +38,7 @@ export default function Home() {
         </div>
 
         <CassettePlayer songs={songs} />
+        <ShareButton />
         <Footer />
       </div>
     </div>
