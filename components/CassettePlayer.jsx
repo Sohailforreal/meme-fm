@@ -326,10 +326,10 @@ function loadYouTubeAPI() {
   return ytApiPromise;
 }
 
-export default function CassettePlayer({ songs }) {
+export default function CassettePlayer({ songs, initialIndex = 0, onSongChange }) {
   const mountRef = useRef(null);
   const sceneRef = useRef({});
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(initialIndex);
   const [playing, setPlaying] = useState(false);
   const song = songs[index];
 
@@ -816,6 +816,10 @@ ds.vy = Math.max(-MAX_V, Math.min(MAX_V, (dy * 0.006) * (16 / dt)));
   useEffect(() => {
     sceneRef.current.playing = playing;
   }, [playing]);
+
+  useEffect(() => {
+    if (onSongChange) onSongChange(song);
+  }, [song, onSongChange]);
 
   return (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
