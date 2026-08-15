@@ -26,7 +26,7 @@ export default function Home() {
     typeof window !== "undefined" && currentSong
       ? `${window.location.origin}${window.location.pathname}?song=${currentSong.id}`
       : undefined;
-
+  if (!router.isReady) return null;
   return (
     <div className="page-wrap">
       <VoronoiBackground />
